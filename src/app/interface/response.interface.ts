@@ -1,4 +1,4 @@
-export interface ResponseI {
-  token?: any;
-  message?: any;
+export interface Login_ResponseI {
+  token?: string;
+  message?: string | null;
 }

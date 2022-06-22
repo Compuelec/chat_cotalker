@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {LoginI} from '../interface/login.interface';
-import {ResponseI} from '../interface/response.interface';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Login_ResponseI} from '../interface/response.interface';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -12,8 +12,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) {}
 
-  loginByEmail(form: LoginI): Observable<ResponseI> {
+  loginByEmail(form: LoginI): Observable<Login_ResponseI> {
     const address = this.url + 'auth/local';
-    return this.http.post<ResponseI>(address, form);
+    return this.http.post<Login_ResponseI>(address, form);
   }
 }

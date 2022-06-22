@@ -4,7 +4,7 @@ import {LoginService} from '../../services/login.service';
 import {LoginI} from '../../interface/login.interface';
 
 import {Router} from '@angular/router';
-import {ResponseI} from '../../interface/response.interface';
+import {Login_ResponseI} from '../../interface/response.interface';
 
 @Component({
   selector: 'app-login',
@@ -37,10 +37,10 @@ export class LoginComponent implements OnInit {
   onLogin(form: LoginI) {
     this.login.loginByEmail(form).subscribe(
       data => {
-        const dataResponse: ResponseI = data;
+        const dataResponse: Login_ResponseI = data;
 
         if (dataResponse.token !== '') {
-          localStorage.setItem('token', dataResponse.token);
+          localStorage.setItem('token', dataResponse.token!);
           this.router.navigate(['messages']);
         }
       },
