@@ -1,1 +1,28 @@
-<p>messages works!</p>
+
+<div class="header_chat shadow p-3 mb-5 bg-white rounded">
+    <div class="header-task">
+        <div class="avatar_channel">
+            <img src="{{ channel_avatar }}" alt="">
+        </div>
+        <div class="desciption_channel">
+            <div class="title-task">{{channel_name}}</div>
+            <div class="participants" *ngFor="let id_user of channel_users">
+                {{ id_user }}
+            </div>
+        </div>
+        <div class="ng-star-inserted">
+            <button mat-icon-button="" class="mat-focus-indicator mat-menu-trigger info mat-icon-button mat-button-base">
+                <span class="mat-button-wrapper">
+                    <span class="cot-icon-more-vertical material-icons ico-vc">
+                            more_vert
+                    </span>
+                </span>
+                <span  class="mat-ripple mat-button-ripple mat-button-ripple-round"></span>
+                <span class="mat-button-focus-overlay"></span>
+            </button>
+            
+        </div>
+
+    </div>
+
+</div>

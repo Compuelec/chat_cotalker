@@ -1,0 +1,139 @@
+body{
+    font-family: Roboto,Helvetica Neue, Arial,sans-serif;
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+  
+.img_channels{
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.header_chat{
+    width: 100%;
+    height: 64px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    z-index: 4;
+    cursor: pointer;
+}
+.header-task{
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    width: calc(100% - 40px);
+}
+
+.avatar_channel{
+    width: 20%
+}
+
+.avatar_channel img{
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    max-height: 42px;
+    border-radius: 50%;
+    margin: 0 1% 0 2%;
+    margin-left: 10px;
+}
+
+.desciption_channel{
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    margin: 0px 2%;
+    text-align: center;
+    flex: 1px 1px auto;
+    width: 75%;
+}
+
+.title-task{
+    font-weight: 500;
+    font-size: 18px;
+    color: #113344de;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.participants{
+    font-size: 13px;
+    color: #989ea1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.mat-icon-button:hover{
+    color: #989ea1
+}
+
+.mat-icon-button {
+    padding: 0;
+    min-width: 0;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    line-height: 40px;
+    border-radius: 50%;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+}
+.mat-button, .mat-icon-button {
+    color: inherit;
+    background: #0000;
+}
+
+.ico-vc{
+    color: #778A9E
+}
+
+

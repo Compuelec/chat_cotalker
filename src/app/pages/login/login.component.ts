@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
 
         if (dataResponse.token !== '') {
           localStorage.setItem('token', dataResponse.token!);
+          localStorage.setItem('email', form.email!);
           this.router.navigate(['messages']);
         }
       },
