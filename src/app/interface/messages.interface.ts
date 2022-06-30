@@ -1,6 +1,7 @@
 export interface MessageI {
-  content?: string | null;
-  contentArray: [{}];
-  contentType: string;
-  contentUrl: string;
+  channel: string | null;
+  content: string | null;
+  contentType: string | null;
+  isSaved: number | null;
+  sentBy: string | null;
 }

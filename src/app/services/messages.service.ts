@@ -3,8 +3,8 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/internal/Observable';
 import {ChanelI} from '../interface/chanel.interface';
 import {AppSettings} from '../appSettings';
-import {MessageI} from '../interface/messages.interface';
 import {UserI} from '../interface/users.interface';
+import {MessageI} from '../interface/messages.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -25,9 +25,9 @@ export class MessagesService {
     return this.http.get<UserI>(address, this.httpOptions);
   }
 
-  User_data_id(id_user: string): Observable<UserI> {
+  User_data_id(id_user: string) {
     const address = AppSettings.API_ENDPOINT + 'api/v2/users?id=' + id_user;
-    return this.http.get<UserI>(address, this.httpOptions);
+    return this.http.get(address, this.httpOptions);
   }
 
   Chanel_data(): Observable<ChanelI> {
@@ -36,10 +36,19 @@ export class MessagesService {
     return this.http.get<ChanelI>(address, this.httpOptions);
   }
 
-  listMessages(): Observable<MessageI> {
+  listMessages() {
     const address =
       AppSettings.API_ENDPOINT +
-      'api/v1/messages/channel/628250ff4288210008c8bda0/modified/2022-05-16T00:00:00.000Z';
-    return this.http.get<MessageI>(address, this.httpOptions);
+      'api/v1/messages/channel/628250ff4288210008c8bda0/modified/5000000000000?until=false&mpp=50';
+    return this.http.get(address, this.httpOptions);
+  }
+
+  writeMessages(datos: MessageI): Observable<MessageI> {
+    const address = AppSettings.API_ENDPOINT + 'api/v1/messages';
+    return this.http.post<MessageI>(
+      address,
+      JSON.stringify(datos),
+      this.httpOptions
+    );
   }
 }
