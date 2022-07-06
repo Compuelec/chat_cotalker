@@ -1,0 +1,120 @@
+<div class="chat_content">
+    <div class="body_messages">
+        <div class="cont_mess">
+            <div class="channel">
+                <div class="header_chat shadow p-3 mb-5 bg-white rounded">
+                    <div class="header-task">
+                        <div class="avatar_channel">
+                            <img src="{{ channel_avatar }}" alt="">
+                        </div>
+                        <div class="desciption_channel">
+                            <div class="title-task">{{channel_name}}</div>
+                            <div class="participants" *ngFor="let id_user of channel_users">
+                                {{ id_user }},
+                            </div>
+                            <div class="participants-num">
+                              {{ num_user_channel }} participantes
+                            </div>
+                        </div>
+                        <div class="ng-star-inserted">
+                            <button mat-icon-button="" class="mat-focus-indicator mat-menu-trigger info mat-icon-button mat-button-base">
+                                <span class="mat-button-wrapper">
+                                    <span class="cot-icon-more-vertical material-icons ico-vc">
+                                            more_vert
+                                    </span>
+                                </span>
+                                <span  class="mat-ripple mat-button-ripple mat-button-ripple-round"></span>
+                                <span class="mat-button-focus-overlay"></span>
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mess_container">
+                    <div class="messages_list_scroll scroll">
+                        <div *ngFor="let data of data_mennsages">
+                          <div *ngIf="data.id_user == id_user_sesion;then content_menssage_usesion else content_menssage"></div>
+                          <ng-template #content_menssage>
+                            <div class="message">
+                                  <div class="message-user-icon-container">
+                                    <div *ngFor="let nomuser of res_user_name_chat">
+                                      <div *ngIf="nomuser.id === data.id_user">
+                                        <img src="{{ img_user(data.id_user, nomuser.names_users) }}" alt="">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="message-triangle"></div>
+                                <div class="message-container">
+                                    <div class="message-bubble first last">
+                                        <div class="message-user-name" style="color: rgb(85, 85, 255);">
+                                          <div *ngFor="let nomuser of res_user_name_chat">
+                                            <div *ngIf="nomuser.id === data.id_user">
+                                              {{ nomuser.names_users }}
+                                            </div>
+
+                                          </div>
+                                        </div>
+                                        <div class="message-text-container">
+                                            <div class="message-text">
+                                              <div *ngIf="data.contentType === 'image/png'">
+                                                <img style="width: 100%;" src="{{ data['mensaje'] }}" alt="">
+                                              </div>
+                                              <div *ngIf="data.contentType === 'application/pdf'">
+                                                <div class="content-pdf-frame">
+                                                  <div><img style="width: 40px;" src="https://us.123rf.com/450wm/123vector/123vector1710/123vector171000360/88439433-ilustraci%C3%B3n-del-icono-rojo-del-c%C3%ADrculo-pdf.jpg?ver=6" alt=""></div>
+                                                  <div class="name-pdf">{{ data['dataname'] }}</div>
+                                                  <div><a href="{{ data['mensaje'] }}"><img style="width: 40px;" src="https://static.vecteezy.com/system/resources/previews/000/643/711/non_2x/download-icon-upload-button-vector.jpg" alt=""></a></div>
+                                                </div>
+                                              </div>
+                                              <div *ngIf="data.contentType === 'text/plain'">
+                                                {{ data['mensaje'] }}
+                                              </div>
+
+                                            </div>
+                                            <div class="message-details-wrapper">
+                                                <div class="message-details">
+                                                    <div class="message-time-stamp"></div>
+                                                    <div class="message-status-icon"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </ng-template>
+                            <ng-template #content_menssage_usesion>
+                              <div class="message">
+                                  <div class="message-container logged-user">
+                                    <div class="message-bubble-login">
+                                        <div class="message-text-container">
+                                            <div class="message-text-logged">
+                                              {{ data['mensaje'] }}
+                                            </div>
+                                            <div class="message-details-wrapper">
+                                                <div class="message-details">
+                                                    <div class="message-time-stamp"></div>
+                                                    <div class="message-status-icon"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel_button_bar ng-star-inserted">
+                    <div  class="bottom-bar">
+                      <form (ngSubmin)="enviarmensaje()">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control input-menssage" placeholder="Enviar mensaje a {{channel_name}}" aria-describedby="basic-addon2" [formControl]="mensajeForm" (keyup.enter)="enviarmensaje()"/>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
